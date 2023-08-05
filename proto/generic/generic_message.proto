@@ -1,0 +1,25 @@
+syntax = "proto3";
+package lms_quiz_services;
+
+option go_package = "lms_quiz_services/pb/generic;generic";
+
+message EmptyMessage {}
+message Id {
+  string id = 1;
+}
+
+message StringMessage {
+  string message = 1;
+}
+
+message BoolMessage {
+  bool is_true = 1;
+}
+
+message Pagination {
+  uint32 limit = 1;
+  uint32 offset = 2;
+  string keyword = 3;
+  string order = 4;
+  string sort = 5;
+}
