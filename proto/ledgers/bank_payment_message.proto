@@ -1,0 +1,28 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/bank_account_message.proto";
+import "ledgers/receivable_message.proto";
+
+message BankPayment {
+  string id = 1;
+  string company_id = 2;
+  string code = 3;
+  string date = 4;
+  string reference_no = 5;
+  Receivable receivable = 6;
+  string purchase_id = 7;
+  double amount = 8;
+  string payee = 9;
+  string description = 10;
+  BankAccount sender = 11;
+  BankAccount receiver = 12;
+  string created_at = 13;
+  string created_by = 14;
+  string updated_at = 15;
+  string updated_by = 16;
+}

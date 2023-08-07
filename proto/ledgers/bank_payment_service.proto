@@ -1,0 +1,16 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/bank_payment_message.proto";
+import "ledgers/generic_message.proto";
+
+service BankPaymentService {
+  rpc Create(BankPayment) returns (BankPayment) {}
+  rpc View(Id) returns (BankPayment) {}
+  rpc Update(Id) returns (BankPayment) {}
+  rpc List(EmptyMessage) returns (stream BankPayment) {}
+}

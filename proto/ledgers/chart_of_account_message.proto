@@ -1,0 +1,28 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+message AccountType {
+  string id = 1;
+  string name = 2;
+}
+
+message ChartOfAccount {
+  string id = 1;
+  string company_id = 2;
+  AccountType account_type = 3;
+  ChartOfAccount parent = 4;
+  string code = 5;
+  string name = 6;
+  string created_at = 7;
+  string created_by = 8;
+  string updated_at = 9;
+  string updated_by = 10;
+}
+
+message ChartOfAccounts {
+  repeated ChartOfAccount chart_of_account = 1;
+}

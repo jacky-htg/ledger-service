@@ -1,0 +1,22 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/generic_message.proto";
+
+message ReturnPurchase {
+  string id = 1;
+  string purchase_id = 2;
+  string purchase_code = 3;
+  string code = 4;
+  string date = 5;
+  double amount =65;
+}
+
+service ReturnPurchaseService {
+  rpc Create(ReturnPurchase) returns (ReturnPurchase) {}
+  rpc Update(Id) returns (ReturnPurchase) {}
+}

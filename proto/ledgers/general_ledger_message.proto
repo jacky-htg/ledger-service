@@ -1,0 +1,19 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/general_journal_message.proto";
+
+message GeneralLedger {
+  string id = 1;
+  string company_id = 2;
+  string code = 3;
+  GeneralJournal general_journal = 4;
+  string created_at = 5;
+  string created_by = 6;
+  string updated_at = 7;
+  string updated_by = 8;
+}

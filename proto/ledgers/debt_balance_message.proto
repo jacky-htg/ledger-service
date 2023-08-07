@@ -1,0 +1,21 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+message DebtBalance {
+  string id = 1;
+  string company_id = 2;
+  string period = 3;
+  double beginning_balance = 4;
+  double amount = 5;
+  double ending_balance = 6;
+  string closing_at = 7;
+  string closing_by = 8; 
+}
+
+message DebtBalances {
+  repeated DebtBalance balance = 1;
+}

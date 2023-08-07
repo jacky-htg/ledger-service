@@ -1,0 +1,20 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/receivable_message.proto";
+import "ledgers/generic_message.proto";
+
+message ViewByCustomerIdInput {
+  string id = 1;
+  string period = 2;
+}
+
+service ReceivableService {
+  rpc Create(Receivable) returns (Receivable) {}
+  rpc ViewByCustomerId(ViewByCustomerIdInput) returns (Receivables) {}
+  rpc ViewBySalesId(Id) returns (Receivable) {}
+}

@@ -1,0 +1,24 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+message Receivable {
+  string id = 1;
+  string company_id = 2;
+  string sales_id = 3;
+  string sales_code = 4;
+  string customer_id = 5;
+  string customer_name = 6;
+  string due_date = 7;
+  double amount_owed = 8;
+  double amount_paid = 9;
+  string payment_status = 10; 
+  bytes payments = 11;
+}
+
+message Receivables {
+  repeated Receivable receivable = 1;
+}
