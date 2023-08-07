@@ -1,0 +1,16 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/bank_receipt_message.proto";
+import "ledgers/generic_message.proto";
+
+service BankReceiptService {
+  rpc Create(BankReceipt) returns (BankReceipt) {}
+  rpc View(Id) returns (BankReceipt) {}
+  rpc Update(Id) returns (BankReceipt) {}
+  rpc List(EmptyMessage) returns (stream BankReceipt) {}
+}

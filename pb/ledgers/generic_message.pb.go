@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.28.0
 // 	protoc        v3.13.0
-// source: generic/generic_message.proto
+// source: ledgers/generic_message.proto
 
-package generic
+package ledgers
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -29,7 +29,7 @@ type EmptyMessage struct {
 func (x *EmptyMessage) Reset() {
 	*x = EmptyMessage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_generic_generic_message_proto_msgTypes[0]
+		mi := &file_ledgers_generic_message_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -42,7 +42,7 @@ func (x *EmptyMessage) String() string {
 func (*EmptyMessage) ProtoMessage() {}
 
 func (x *EmptyMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_generic_generic_message_proto_msgTypes[0]
+	mi := &file_ledgers_generic_message_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -55,7 +55,7 @@ func (x *EmptyMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmptyMessage.ProtoReflect.Descriptor instead.
 func (*EmptyMessage) Descriptor() ([]byte, []int) {
-	return file_generic_generic_message_proto_rawDescGZIP(), []int{0}
+	return file_ledgers_generic_message_proto_rawDescGZIP(), []int{0}
 }
 
 type Id struct {
@@ -69,7 +69,7 @@ type Id struct {
 func (x *Id) Reset() {
 	*x = Id{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_generic_generic_message_proto_msgTypes[1]
+		mi := &file_ledgers_generic_message_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -82,7 +82,7 @@ func (x *Id) String() string {
 func (*Id) ProtoMessage() {}
 
 func (x *Id) ProtoReflect() protoreflect.Message {
-	mi := &file_generic_generic_message_proto_msgTypes[1]
+	mi := &file_ledgers_generic_message_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -95,7 +95,7 @@ func (x *Id) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Id.ProtoReflect.Descriptor instead.
 func (*Id) Descriptor() ([]byte, []int) {
-	return file_generic_generic_message_proto_rawDescGZIP(), []int{1}
+	return file_ledgers_generic_message_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Id) GetId() string {
@@ -116,7 +116,7 @@ type StringMessage struct {
 func (x *StringMessage) Reset() {
 	*x = StringMessage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_generic_generic_message_proto_msgTypes[2]
+		mi := &file_ledgers_generic_message_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -129,7 +129,7 @@ func (x *StringMessage) String() string {
 func (*StringMessage) ProtoMessage() {}
 
 func (x *StringMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_generic_generic_message_proto_msgTypes[2]
+	mi := &file_ledgers_generic_message_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -142,7 +142,7 @@ func (x *StringMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StringMessage.ProtoReflect.Descriptor instead.
 func (*StringMessage) Descriptor() ([]byte, []int) {
-	return file_generic_generic_message_proto_rawDescGZIP(), []int{2}
+	return file_ledgers_generic_message_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *StringMessage) GetMessage() string {
@@ -163,7 +163,7 @@ type BoolMessage struct {
 func (x *BoolMessage) Reset() {
 	*x = BoolMessage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_generic_generic_message_proto_msgTypes[3]
+		mi := &file_ledgers_generic_message_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -176,7 +176,7 @@ func (x *BoolMessage) String() string {
 func (*BoolMessage) ProtoMessage() {}
 
 func (x *BoolMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_generic_generic_message_proto_msgTypes[3]
+	mi := &file_ledgers_generic_message_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -189,7 +189,7 @@ func (x *BoolMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BoolMessage.ProtoReflect.Descriptor instead.
 func (*BoolMessage) Descriptor() ([]byte, []int) {
-	return file_generic_generic_message_proto_rawDescGZIP(), []int{3}
+	return file_ledgers_generic_message_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *BoolMessage) GetIsTrue() bool {
@@ -214,7 +214,7 @@ type Pagination struct {
 func (x *Pagination) Reset() {
 	*x = Pagination{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_generic_generic_message_proto_msgTypes[4]
+		mi := &file_ledgers_generic_message_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -227,7 +227,7 @@ func (x *Pagination) String() string {
 func (*Pagination) ProtoMessage() {}
 
 func (x *Pagination) ProtoReflect() protoreflect.Message {
-	mi := &file_generic_generic_message_proto_msgTypes[4]
+	mi := &file_ledgers_generic_message_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -240,7 +240,7 @@ func (x *Pagination) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Pagination.ProtoReflect.Descriptor instead.
 func (*Pagination) Descriptor() ([]byte, []int) {
-	return file_generic_generic_message_proto_rawDescGZIP(), []int{4}
+	return file_ledgers_generic_message_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Pagination) GetLimit() uint32 {
@@ -278,54 +278,55 @@ func (x *Pagination) GetSort() string {
 	return ""
 }
 
-var File_generic_generic_message_proto protoreflect.FileDescriptor
+var File_ledgers_generic_message_proto protoreflect.FileDescriptor
 
-var file_generic_generic_message_proto_rawDesc = []byte{
-	0x0a, 0x1d, 0x67, 0x65, 0x6e, 0x65, 0x72, 0x69, 0x63, 0x2f, 0x67, 0x65, 0x6e, 0x65, 0x72, 0x69,
+var file_ledgers_generic_message_proto_rawDesc = []byte{
+	0x0a, 0x1d, 0x6c, 0x65, 0x64, 0x67, 0x65, 0x72, 0x73, 0x2f, 0x67, 0x65, 0x6e, 0x65, 0x72, 0x69,
 	0x63, 0x5f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12,
-	0x11, 0x6c, 0x6d, 0x73, 0x5f, 0x71, 0x75, 0x69, 0x7a, 0x5f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x73, 0x22, 0x0e, 0x0a, 0x0c, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x22, 0x14, 0x0a, 0x02, 0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x29, 0x0a, 0x0d, 0x53, 0x74, 0x72, 0x69,
-	0x6e, 0x67, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73,
-	0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x22, 0x26, 0x0a, 0x0b, 0x42, 0x6f, 0x6f, 0x6c, 0x4d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x69, 0x73, 0x5f, 0x74, 0x72, 0x75, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x08, 0x52, 0x06, 0x69, 0x73, 0x54, 0x72, 0x75, 0x65, 0x22, 0x7e, 0x0a, 0x0a, 0x50,
-	0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d,
-	0x69, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x12,
-	0x16, 0x0a, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52,
-	0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x6b, 0x65, 0x79, 0x77, 0x6f,
-	0x72, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6b, 0x65, 0x79, 0x77, 0x6f, 0x72,
-	0x64, 0x12, 0x14, 0x0a, 0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x73, 0x6f, 0x72, 0x74, 0x18,
-	0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x73, 0x6f, 0x72, 0x74, 0x42, 0x26, 0x5a, 0x24, 0x6c,
-	0x6d, 0x73, 0x5f, 0x71, 0x75, 0x69, 0x7a, 0x5f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73,
-	0x2f, 0x70, 0x62, 0x2f, 0x67, 0x65, 0x6e, 0x65, 0x72, 0x69, 0x63, 0x3b, 0x67, 0x65, 0x6e, 0x65,
-	0x72, 0x69, 0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x10, 0x77, 0x69, 0x72, 0x61, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x6c, 0x65, 0x64, 0x67, 0x65, 0x72,
+	0x73, 0x22, 0x0e, 0x0a, 0x0c, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x22, 0x14, 0x0a, 0x02, 0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x29, 0x0a, 0x0d, 0x53, 0x74, 0x72, 0x69, 0x6e,
+	0x67, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73,
+	0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61,
+	0x67, 0x65, 0x22, 0x26, 0x0a, 0x0b, 0x42, 0x6f, 0x6f, 0x6c, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x12, 0x17, 0x0a, 0x07, 0x69, 0x73, 0x5f, 0x74, 0x72, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x06, 0x69, 0x73, 0x54, 0x72, 0x75, 0x65, 0x22, 0x7e, 0x0a, 0x0a, 0x50, 0x61,
+	0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x14, 0x0a, 0x05, 0x6c, 0x69, 0x6d, 0x69,
+	0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x05, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x12, 0x16,
+	0x0a, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06,
+	0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x6b, 0x65, 0x79, 0x77, 0x6f, 0x72,
+	0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6b, 0x65, 0x79, 0x77, 0x6f, 0x72, 0x64,
+	0x12, 0x14, 0x0a, 0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x05, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x73, 0x6f, 0x72, 0x74, 0x18, 0x05,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x73, 0x6f, 0x72, 0x74, 0x42, 0x3b, 0x0a, 0x23, 0x63, 0x6f,
+	0x6d, 0x2e, 0x77, 0x69, 0x72, 0x61, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x65, 0x72, 0x70, 0x61, 0x70,
+	0x70, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x6c, 0x65, 0x64, 0x67, 0x65, 0x72,
+	0x73, 0x50, 0x01, 0x5a, 0x12, 0x70, 0x62, 0x2f, 0x6c, 0x65, 0x64, 0x67, 0x65, 0x72, 0x73, 0x3b,
+	0x6c, 0x65, 0x64, 0x67, 0x65, 0x72, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_generic_generic_message_proto_rawDescOnce sync.Once
-	file_generic_generic_message_proto_rawDescData = file_generic_generic_message_proto_rawDesc
+	file_ledgers_generic_message_proto_rawDescOnce sync.Once
+	file_ledgers_generic_message_proto_rawDescData = file_ledgers_generic_message_proto_rawDesc
 )
 
-func file_generic_generic_message_proto_rawDescGZIP() []byte {
-	file_generic_generic_message_proto_rawDescOnce.Do(func() {
-		file_generic_generic_message_proto_rawDescData = protoimpl.X.CompressGZIP(file_generic_generic_message_proto_rawDescData)
+func file_ledgers_generic_message_proto_rawDescGZIP() []byte {
+	file_ledgers_generic_message_proto_rawDescOnce.Do(func() {
+		file_ledgers_generic_message_proto_rawDescData = protoimpl.X.CompressGZIP(file_ledgers_generic_message_proto_rawDescData)
 	})
-	return file_generic_generic_message_proto_rawDescData
+	return file_ledgers_generic_message_proto_rawDescData
 }
 
-var file_generic_generic_message_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
-var file_generic_generic_message_proto_goTypes = []interface{}{
-	(*EmptyMessage)(nil),  // 0: lms_quiz_services.EmptyMessage
-	(*Id)(nil),            // 1: lms_quiz_services.Id
-	(*StringMessage)(nil), // 2: lms_quiz_services.StringMessage
-	(*BoolMessage)(nil),   // 3: lms_quiz_services.BoolMessage
-	(*Pagination)(nil),    // 4: lms_quiz_services.Pagination
+var file_ledgers_generic_message_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_ledgers_generic_message_proto_goTypes = []interface{}{
+	(*EmptyMessage)(nil),  // 0: wiradata.ledgers.EmptyMessage
+	(*Id)(nil),            // 1: wiradata.ledgers.Id
+	(*StringMessage)(nil), // 2: wiradata.ledgers.StringMessage
+	(*BoolMessage)(nil),   // 3: wiradata.ledgers.BoolMessage
+	(*Pagination)(nil),    // 4: wiradata.ledgers.Pagination
 }
-var file_generic_generic_message_proto_depIdxs = []int32{
+var file_ledgers_generic_message_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -333,13 +334,13 @@ var file_generic_generic_message_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_generic_generic_message_proto_init() }
-func file_generic_generic_message_proto_init() {
-	if File_generic_generic_message_proto != nil {
+func init() { file_ledgers_generic_message_proto_init() }
+func file_ledgers_generic_message_proto_init() {
+	if File_ledgers_generic_message_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_generic_generic_message_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_ledgers_generic_message_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EmptyMessage); i {
 			case 0:
 				return &v.state
@@ -351,7 +352,7 @@ func file_generic_generic_message_proto_init() {
 				return nil
 			}
 		}
-		file_generic_generic_message_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_ledgers_generic_message_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Id); i {
 			case 0:
 				return &v.state
@@ -363,7 +364,7 @@ func file_generic_generic_message_proto_init() {
 				return nil
 			}
 		}
-		file_generic_generic_message_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_ledgers_generic_message_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StringMessage); i {
 			case 0:
 				return &v.state
@@ -375,7 +376,7 @@ func file_generic_generic_message_proto_init() {
 				return nil
 			}
 		}
-		file_generic_generic_message_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_ledgers_generic_message_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BoolMessage); i {
 			case 0:
 				return &v.state
@@ -387,7 +388,7 @@ func file_generic_generic_message_proto_init() {
 				return nil
 			}
 		}
-		file_generic_generic_message_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_ledgers_generic_message_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Pagination); i {
 			case 0:
 				return &v.state
@@ -404,18 +405,18 @@ func file_generic_generic_message_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_generic_generic_message_proto_rawDesc,
+			RawDescriptor: file_ledgers_generic_message_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_generic_generic_message_proto_goTypes,
-		DependencyIndexes: file_generic_generic_message_proto_depIdxs,
-		MessageInfos:      file_generic_generic_message_proto_msgTypes,
+		GoTypes:           file_ledgers_generic_message_proto_goTypes,
+		DependencyIndexes: file_ledgers_generic_message_proto_depIdxs,
+		MessageInfos:      file_ledgers_generic_message_proto_msgTypes,
 	}.Build()
-	File_generic_generic_message_proto = out.File
-	file_generic_generic_message_proto_rawDesc = nil
-	file_generic_generic_message_proto_goTypes = nil
-	file_generic_generic_message_proto_depIdxs = nil
+	File_ledgers_generic_message_proto = out.File
+	file_ledgers_generic_message_proto_rawDesc = nil
+	file_ledgers_generic_message_proto_goTypes = nil
+	file_ledgers_generic_message_proto_depIdxs = nil
 }

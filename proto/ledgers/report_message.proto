@@ -1,0 +1,29 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+message IncomeStatement {
+  string period = 1;  // Contoh: "Bulan Januari 2023"
+  repeated AccountItem income_items = 2;
+  repeated AccountItem expense_items = 3;
+  double net_profit = 4;
+}
+
+message BalanceSheet {
+  string date = 1;  // Contoh: "31 Desember 2023"
+  repeated AccountItem assets = 2;
+  repeated AccountItem liabilities = 3;
+  double equity = 4;
+}
+
+message AccountItem {
+  string name = 1;
+  double amount = 2;
+}
+
+message ReportPeriod {
+  string period = 1;
+}

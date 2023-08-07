@@ -1,0 +1,13 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/report_message.proto";
+
+service ReportService {
+  rpc GetIncomeStatement(ReportPeriod) returns (IncomeStatement) {}
+  rpc GetBalanceSheet(ReportPeriod) returns (BalanceSheet) {}
+}

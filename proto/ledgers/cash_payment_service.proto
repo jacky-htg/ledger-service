@@ -1,0 +1,16 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/cash_payment_message.proto";
+import "ledgers/generic_message.proto";
+
+service CashPaymentService {
+  rpc Create(CashPayment) returns (CashPayment) {}
+  rpc View(Id) returns (CashPayment) {}
+  rpc Update(Id) returns (CashPayment) {}
+  rpc List(EmptyMessage) returns (stream CashPayment) {}
+}

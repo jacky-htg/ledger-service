@@ -1,0 +1,27 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+enum TransactionType {
+  CASH_RECEIPT = 0;
+  CASH_PAYMENT = 1;
+  BANK_RECEIPT = 2;
+  BANK_PAYMENT = 3;
+}
+
+message GeneralJournal {
+  string id = 1;
+  string company_id = 2;
+  string code = 3;
+  string date = 4;
+  string name = 5;
+  TransactionType transaction_type = 6;
+  bytes transaction = 7;
+  string created_at = 8;
+  string created_by = 9;
+  string updated_at = 10;
+  string updated_by = 11;
+}

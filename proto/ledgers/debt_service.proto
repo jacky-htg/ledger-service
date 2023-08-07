@@ -1,0 +1,20 @@
+syntax = "proto3";
+package wiradata.ledgers;
+
+option go_package = "pb/ledgers;ledgers";
+option java_package = "com.wiradata.erpapplication.ledgers";
+option java_multiple_files = true;
+
+import "ledgers/debt_message.proto";
+import "ledgers/generic_message.proto";
+
+message ViewBySupplierIdInput {
+  string id = 1;
+  string period = 2;
+}
+
+service DebtService {
+  rpc Create(Debt) returns (Debt) {}
+  rpc ViewBySupplierId(ViewBySupplierIdInput) returns (Debts) {}
+  rpc ViewByPurchaseId(Id) returns (Debt) {}
+}

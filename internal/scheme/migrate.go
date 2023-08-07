@@ -16,7 +16,7 @@ var migrations = []darwin.Migration{
 		Version:     2,
 		Description: "Create table account_types",
 		Script: `CREATE TABLE account_types(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			name varchar(45) NOT NULL
 		);`,
 	},
@@ -24,11 +24,12 @@ var migrations = []darwin.Migration{
 		Version:     3,
 		Description: "Create table chart_of_accounts",
 		Script: `CREATE TABLE chart_of_accounts(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			account_type_id uuid NOT NULL,
 			parent_id uuid,
 			code char(8) NOT NULL,
+			name varchar(45) NOT NULL,
 			created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc', NOW()),
 			updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc', NOW()),
 			created_by uuid NOT NULL,
@@ -42,7 +43,7 @@ var migrations = []darwin.Migration{
 		Version:     4,
 		Description: "Create table account_balances",
 		Script: `CREATE TABLE account_balances(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			account_id uuid NOT NULL,
 			period date NOT NULL,
@@ -60,7 +61,7 @@ var migrations = []darwin.Migration{
 		Version:     5,
 		Description: "Create table debt_balances",
 		Script: `CREATE TABLE debt_balances(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			period date NOT NULL,
 			beginning_balance double NOT NULL,
@@ -75,7 +76,7 @@ var migrations = []darwin.Migration{
 		Version:     6,
 		Description: "Create table ar_balances",
 		Script: `CREATE TABLE ar_balances(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			period date NOT NULL,
 			beginning_balance double NOT NULL,
@@ -90,7 +91,7 @@ var migrations = []darwin.Migration{
 		Version:     7,
 		Description: "Create table receivables",
 		Script: `CREATE TABLE receivables(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			sales_id uuid NOT NULL,
 			customer_id uuid NOT NULL,
@@ -105,7 +106,7 @@ var migrations = []darwin.Migration{
 		Version:     8,
 		Description: "Create table debts",
 		Script: `CREATE TABLE debts(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			purchase_id uuid NOT NULL,
 			supplier_id uuid NOT NULL,
@@ -120,7 +121,7 @@ var migrations = []darwin.Migration{
 		Version:     9,
 		Description: "Create table cash_receipts",
 		Script: `CREATE TABLE cash_receipts(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			code char(13) NOT NULL,
 			date date NOT NULL,
@@ -141,7 +142,7 @@ var migrations = []darwin.Migration{
 		Version:     10,
 		Description: "Create table cash_payments",
 		Script: `CREATE TABLE cash_payments(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			code char(13) NOT NULL,
 			date date NOT NULL,
@@ -162,7 +163,7 @@ var migrations = []darwin.Migration{
 		Version:     11,
 		Description: "Create table bank_accounts",
 		Script: `CREATE TABLE bank_accounts(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			bank_name varchar(45) NOT NULL,
 			account_number char(20) NOT NULL,
@@ -180,7 +181,7 @@ var migrations = []darwin.Migration{
 		Version:     12,
 		Description: "Create table bank_receipts",
 		Script: `CREATE TABLE bank_receipts(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			code char(13) NOT NULL,
 			date date NOT NULL,
@@ -205,7 +206,7 @@ var migrations = []darwin.Migration{
 		Version:     13,
 		Description: "Create table bank_payments",
 		Script: `CREATE TABLE bank_payments(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			code char(13) NOT NULL,
 			date date NOT NULL,
@@ -230,7 +231,7 @@ var migrations = []darwin.Migration{
 		Version:     14,
 		Description: "Create table general_journals",
 		Script: `CREATE TABLE general_journals(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			code char(13) NOT NULL,
 			date date NOT NULL,
@@ -247,11 +248,13 @@ var migrations = []darwin.Migration{
 		Version:     15,
 		Description: "Create table general_journal_details",
 		Script: `CREATE TABLE general_journal_details(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			general_journal_id uuid NOT NULL,
+			account_id uuid,
 			name varchar(45) NOT NULL,
 			amount double NOT NULL,
 			debit_credit char(1) NOT NULL,
+			CONSTRAINT fk_general_journal_details_to_chart_of_accounts FOREIGN KEY(account_id) REFERENCES chart_of_accounts(id),
 			CONSTRAINT fk_general_journal_details_to_general_journals FOREIGN KEY(general_journal_id) REFERENCES general_journals(id)
 		);`,
 	},
@@ -259,7 +262,7 @@ var migrations = []darwin.Migration{
 		Version:     16,
 		Description: "Create table general_ledgers",
 		Script: `CREATE TABLE general_ledgers(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			code char(13) NOT NULL,
 			general_journal_id uuid NOT NULL,
@@ -275,7 +278,7 @@ var migrations = []darwin.Migration{
 		Version:     17,
 		Description: "Create table general_ledger_details",
 		Script: `CREATE TABLE general_ledger_details(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			general_ledger_id uuid NOT NULL,
 			general_journal_detail_id uuid NOT NULL,
 			account_id uuid NOT NULL,
@@ -288,7 +291,7 @@ var migrations = []darwin.Migration{
 		Version:     18,
 		Description: "Create table journal_entries",
 		Script: `CREATE TABLE journal_entries(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			company_id uuid NOT NULL,
 			code char(13) NOT NULL,
 			date date NOT NULL,
@@ -304,12 +307,34 @@ var migrations = []darwin.Migration{
 		Version:     19,
 		Description: "Create table journal_entry_details",
 		Script: `CREATE TABLE journal_entry_details(
-			id uuid NOT NULL PRIMARY KEY,
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
 			journal_entry_id uuid NOT NULL,
 			name varchar(45) NOT NULL,
 			amount double NOT NULL,
 			debit_credit char(1) NOT NULL,
 			CONSTRAINT fk_journal_entry_details_to_journal_entries FOREIGN KEY(journal_entry_id) REFERENCES journal_entries(id)
+		);`,
+	},
+	{
+		Version:     20,
+		Description: "Create table acc_configurations",
+		Script: `CREATE TABLE acc_configurations(
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
+			name varchar(45) NOT NULL UNIQUE
+		);`,
+	},
+	{
+		Version:     21,
+		Description: "Create table acc_configuration_details",
+		Script: `CREATE TABLE acc_configuration_details(
+			id uuid NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4 (),
+			company_id uuid NOT NULL,
+			acc_configuration_id uuid NOT NULL,
+			account_id uuid NOT NULL,
+			UNIQUE(company_id, acc_configuration_id),
+			UNIQUE(company_id, acc_configuration_id, account_id),
+			CONSTRAINT fk_acc_configuration_details_to_acc_configurations FOREIGN KEY(acc_configuration_id) REFERENCES acc_configurations(id),
+			CONSTRAINT fk_acc_configuration_details_to_chart_of_accounts FOREIGN KEY(account_id) REFERENCES chart_of_accounts(id)
 		);`,
 	},
 }
