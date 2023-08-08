@@ -1,11 +1,9 @@
 package main
 
 import (
-	"context"
 	"log"
 	"net"
 	"os"
-	"time"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	_ "github.com/lib/pq"
@@ -14,7 +12,6 @@ import (
 	"ledger-service/internal/config"
 	"ledger-service/internal/middleware"
 	"ledger-service/internal/pkg/db/postgres"
-	"ledger-service/internal/pkg/db/redis"
 	"ledger-service/internal/route"
 )
 
@@ -45,12 +42,12 @@ func main() {
 	defer db.Close()
 
 	// create redis cache connection
-	cache, err := redis.NewCache(context.Background(), os.Getenv("REDIS_ADDRESS"), os.Getenv("REDIS_PASSWORD"), 24*time.Hour)
+	/*cache, err := redis.NewCache(context.Background(), os.Getenv("REDIS_ADDRESS"), os.Getenv("REDIS_PASSWORD"), 24*time.Hour)
 	if err != nil {
 		log.Fatalf("cannot create redis connection: %v", err)
 		return
 	}
-	log.Print("connecting to redis cache")
+	log.Print("connecting to redis cache") */
 
 	// listen tcp port
 	lis, err := net.Listen("tcp", ":"+port)
@@ -71,7 +68,7 @@ func main() {
 	grpcServer := grpc.NewServer(serverOptions...)
 
 	// routing grpc services
-	route.GrpcRoute(grpcServer, db, log, cache)
+	route.GrpcRoute(grpcServer, db, log)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %s", err)
