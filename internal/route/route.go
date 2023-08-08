@@ -4,13 +4,14 @@ import (
 	"database/sql"
 	"log"
 
-	"google.golang.org/grpc"
+	"ledger-service/internal/domain/coa"
+	"ledger-service/pb/ledgers"
 
-	"ledger-service/internal/pkg/db/redis"
+	"google.golang.org/grpc"
 )
 
 // GrpcRoute func
-func GrpcRoute(grpcServer *grpc.Server, db *sql.DB, log *log.Logger, cache *redis.Cache) {
-	//quizServer := quizDomain.QuizService{Db: db, Cache: cache}
-	//quizPb.RegisterQuizzesServer(grpcServer, &quizServer)
+func GrpcRoute(grpcServer *grpc.Server, db *sql.DB, log *log.Logger) {
+	coaServer := coa.Service{Db: db}
+	ledgers.RegisterChartOfAccountServiceServer(grpcServer, &coaServer)
 }

@@ -61,25 +61,18 @@ func (a Context) context(ctx context.Context) (context.Context, error) {
 		return ctx, status.Errorf(codes.Unauthenticated, "user_id metadata is not provided")
 	}
 
-	universityId := md["university_id"]
-	if len(universityId) == 0 {
-		return ctx, status.Errorf(codes.Unauthenticated, "university_id metadata is not provided")
-	}
-
-	programStudiId := md["program_studi_id"]
-	if len(programStudiId) == 0 {
-		return ctx, status.Errorf(codes.Unauthenticated, "program_studi_id metadata is not provided")
+	companyId := md["company_id"]
+	if len(companyId) == 0 {
+		return ctx, status.Errorf(codes.Unauthenticated, "company_id metadata is not provided")
 	}
 
 	ctx = context.WithValue(ctx, app.Ctx("user_id"), userId[0])
-	ctx = context.WithValue(ctx, app.Ctx("university_id"), universityId[0])
-	ctx = context.WithValue(ctx, app.Ctx("program_studi_id"), programStudiId[0])
+	ctx = context.WithValue(ctx, app.Ctx("company_id"), companyId[0])
 
 	// Set token to outgoing metadata
 	mdOutgoing := metadata.New(map[string]string{
-		"user_id":          userId[0],
-		"university_id":    universityId[0],
-		"program_studi_id": programStudiId[0],
+		"user_id":    userId[0],
+		"company_id": companyId[0],
 	})
 
 	ctx = metadata.NewOutgoingContext(ctx, mdOutgoing)
