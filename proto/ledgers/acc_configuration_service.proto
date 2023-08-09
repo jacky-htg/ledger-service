@@ -10,7 +10,7 @@ import "ledgers/acc_configuration_message.proto";
 
 service AccConfigurationService {
   rpc List(EmptyMessage) returns (stream AccConfigurationDetail) {}
-  rpc Create(Id) returns (AccConfigurationDetail) {}
-  rpc Update(Id) returns (AccConfigurationDetail) {}
-  rpc Delete(Id) returns (StringMessage) {}
+  rpc Create(AccConfigurationDetail) returns (AccConfigurationDetail) {}
+  rpc Update(AccConfigurationDetail) returns (AccConfigurationDetail) {}
+  rpc Delete(Id) returns (BoolMessage) {}
 }
