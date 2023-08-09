@@ -23,9 +23,9 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AccConfigurationServiceClient interface {
 	List(ctx context.Context, in *EmptyMessage, opts ...grpc.CallOption) (AccConfigurationService_ListClient, error)
-	Create(ctx context.Context, in *Id, opts ...grpc.CallOption) (*AccConfigurationDetail, error)
-	Update(ctx context.Context, in *Id, opts ...grpc.CallOption) (*AccConfigurationDetail, error)
-	Delete(ctx context.Context, in *Id, opts ...grpc.CallOption) (*StringMessage, error)
+	Create(ctx context.Context, in *AccConfigurationDetail, opts ...grpc.CallOption) (*AccConfigurationDetail, error)
+	Update(ctx context.Context, in *AccConfigurationDetail, opts ...grpc.CallOption) (*AccConfigurationDetail, error)
+	Delete(ctx context.Context, in *Id, opts ...grpc.CallOption) (*BoolMessage, error)
 }
 
 type accConfigurationServiceClient struct {
@@ -68,7 +68,7 @@ func (x *accConfigurationServiceListClient) Recv() (*AccConfigurationDetail, err
 	return m, nil
 }
 
-func (c *accConfigurationServiceClient) Create(ctx context.Context, in *Id, opts ...grpc.CallOption) (*AccConfigurationDetail, error) {
+func (c *accConfigurationServiceClient) Create(ctx context.Context, in *AccConfigurationDetail, opts ...grpc.CallOption) (*AccConfigurationDetail, error) {
 	out := new(AccConfigurationDetail)
 	err := c.cc.Invoke(ctx, "/wiradata.ledgers.AccConfigurationService/Create", in, out, opts...)
 	if err != nil {
@@ -77,7 +77,7 @@ func (c *accConfigurationServiceClient) Create(ctx context.Context, in *Id, opts
 	return out, nil
 }
 
-func (c *accConfigurationServiceClient) Update(ctx context.Context, in *Id, opts ...grpc.CallOption) (*AccConfigurationDetail, error) {
+func (c *accConfigurationServiceClient) Update(ctx context.Context, in *AccConfigurationDetail, opts ...grpc.CallOption) (*AccConfigurationDetail, error) {
 	out := new(AccConfigurationDetail)
 	err := c.cc.Invoke(ctx, "/wiradata.ledgers.AccConfigurationService/Update", in, out, opts...)
 	if err != nil {
@@ -86,8 +86,8 @@ func (c *accConfigurationServiceClient) Update(ctx context.Context, in *Id, opts
 	return out, nil
 }
 
-func (c *accConfigurationServiceClient) Delete(ctx context.Context, in *Id, opts ...grpc.CallOption) (*StringMessage, error) {
-	out := new(StringMessage)
+func (c *accConfigurationServiceClient) Delete(ctx context.Context, in *Id, opts ...grpc.CallOption) (*BoolMessage, error) {
+	out := new(BoolMessage)
 	err := c.cc.Invoke(ctx, "/wiradata.ledgers.AccConfigurationService/Delete", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -100,9 +100,9 @@ func (c *accConfigurationServiceClient) Delete(ctx context.Context, in *Id, opts
 // for forward compatibility
 type AccConfigurationServiceServer interface {
 	List(*EmptyMessage, AccConfigurationService_ListServer) error
-	Create(context.Context, *Id) (*AccConfigurationDetail, error)
-	Update(context.Context, *Id) (*AccConfigurationDetail, error)
-	Delete(context.Context, *Id) (*StringMessage, error)
+	Create(context.Context, *AccConfigurationDetail) (*AccConfigurationDetail, error)
+	Update(context.Context, *AccConfigurationDetail) (*AccConfigurationDetail, error)
+	Delete(context.Context, *Id) (*BoolMessage, error)
 	mustEmbedUnimplementedAccConfigurationServiceServer()
 }
 
@@ -113,13 +113,13 @@ type UnimplementedAccConfigurationServiceServer struct {
 func (UnimplementedAccConfigurationServiceServer) List(*EmptyMessage, AccConfigurationService_ListServer) error {
 	return status.Errorf(codes.Unimplemented, "method List not implemented")
 }
-func (UnimplementedAccConfigurationServiceServer) Create(context.Context, *Id) (*AccConfigurationDetail, error) {
+func (UnimplementedAccConfigurationServiceServer) Create(context.Context, *AccConfigurationDetail) (*AccConfigurationDetail, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedAccConfigurationServiceServer) Update(context.Context, *Id) (*AccConfigurationDetail, error) {
+func (UnimplementedAccConfigurationServiceServer) Update(context.Context, *AccConfigurationDetail) (*AccConfigurationDetail, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedAccConfigurationServiceServer) Delete(context.Context, *Id) (*StringMessage, error) {
+func (UnimplementedAccConfigurationServiceServer) Delete(context.Context, *Id) (*BoolMessage, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 func (UnimplementedAccConfigurationServiceServer) mustEmbedUnimplementedAccConfigurationServiceServer() {
@@ -158,7 +158,7 @@ func (x *accConfigurationServiceListServer) Send(m *AccConfigurationDetail) erro
 }
 
 func _AccConfigurationService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Id)
+	in := new(AccConfigurationDetail)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ func _AccConfigurationService_Create_Handler(srv interface{}, ctx context.Contex
 		FullMethod: "/wiradata.ledgers.AccConfigurationService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccConfigurationServiceServer).Create(ctx, req.(*Id))
+		return srv.(AccConfigurationServiceServer).Create(ctx, req.(*AccConfigurationDetail))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AccConfigurationService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Id)
+	in := new(AccConfigurationDetail)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -188,7 +188,7 @@ func _AccConfigurationService_Update_Handler(srv interface{}, ctx context.Contex
 		FullMethod: "/wiradata.ledgers.AccConfigurationService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccConfigurationServiceServer).Update(ctx, req.(*Id))
+		return srv.(AccConfigurationServiceServer).Update(ctx, req.(*AccConfigurationDetail))
 	}
 	return interceptor(ctx, in, info, handler)
 }
